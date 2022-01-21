@@ -1,7 +1,8 @@
 # Android SystemUpdaterSample (A/B partitioning)
 
 ### Pre-requisites
-* Android device with root permissions
+* Android device with root permissions and supporting A/B partitioning.
+* `update_engine` daemon is running (https://source.android.com/devices/tech/ota/ab#update-engine)
 
 ## Development Instructions
 

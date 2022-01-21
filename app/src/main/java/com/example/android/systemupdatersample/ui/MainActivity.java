@@ -23,6 +23,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UpdateEngine;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -114,7 +115,14 @@ public class MainActivity extends Activity {
         super.onResume();
         // Binding to UpdateEngine invokes onStatusUpdate callback,
         // persisted updater state has to be loaded and prepared beforehand.
-//        this.mUpdateManager.bind();
+        if (!SystemProperties.get("ro.build.ab_update").isEmpty() && SystemProperties.get("ro.build.ab_update") == "true"){
+            Log.d(TAG, "onResume: A/B partitioning supported");
+            this.mUpdateManager.bind();
+        }else{
+            Log.w(TAG, "onResume: A/B partitioning not supported. This app really does not work!!!!");
+        }
+
+        //this.mUpdateManager.bind();
     }
 
     @Override

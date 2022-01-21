@@ -24,6 +24,7 @@
     "ab_config": {
         "__": "A/B (seamless) update configurations",
         "__force_switch_slot": "if set true device will boot to a new slot, otherwise user manually switches slot on the screen",
-        "force_switch_slot": false
+        "force_switch_slot": false,
+        "verify_payload_metadata": true
     }
 }
